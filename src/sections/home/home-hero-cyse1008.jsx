@@ -1,5 +1,7 @@
-import { m } from 'framer-motion';
+/* eslint-disable perfectionist/sort-imports */
+
 import { useState } from 'react';
+
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button'; // Import the Button component
 import { PromoCard } from './PromoCard'; // Import the custom PromoCard component
