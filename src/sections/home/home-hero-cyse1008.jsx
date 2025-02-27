@@ -1,10 +1,11 @@
 /* eslint-disable perfectionist/sort-imports */
 
 import { useState } from 'react';
-
+ 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button'; // Import the Button component
 import { PromoCard } from './PromoCard'; // Import the custom PromoCard component
+import { ExtendedEuclideanAlgorithm } from './components/Extended-Euclidean-Algorithm';
 
 export function HomeHeroCYSE1008() {
   // Set up state for the Click Me button
@@ -63,6 +64,12 @@ export function HomeHeroCYSE1008() {
           title="Special Offer!" 
           description="Get 20% off on your first order!" 
         />
+       
+        {/* 🔹 New Component: Extended Euclidean Algorithm */}
+        <Box sx={{ marginTop: 4 }}>
+          <ExtendedEuclideanAlgorithm />
+        </Box>
+
       </Box>
     </div>
   );
