@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button'; // Import the Button component
 import { PromoCard } from './PromoCard'; // Import the custom PromoCard component
-import { ExtendedEuclideanAlgorithm } from './components/Extended-Euclidean-Algorithm';
+import { ExtendedEuclideanAlgorithm } from './components/extended-euclidean-algorithm';
 
 export function HomeHeroCYSE1008() {
   // Set up state for the Click Me button
