@@ -1,55 +1,76 @@
-import { m } from 'framer-motion';
+/* eslint-disable perfectionist/sort-imports */
 
+import { useState } from 'react';
+ 
 import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import { useTheme } from '@mui/material/styles';
-
-import { textGradient } from 'src/theme/styles';
-
-
-const lgKey = 'lg';
+import Button from '@mui/material/Button'; // Import the Button component
+import { PromoCard } from './PromoCard'; // Import the custom PromoCard component
+import { ExtendedEuclideanAlgorithm } from './components/Extended-Euclidean-Algorithm';
 
 export function HomeHeroCYSE1008() {
-  const theme = useTheme();
+  // Set up state for the Click Me button
+  const [count, setCount] = useState(0);
+
+  // Create an array of colors for each letter in "KICKS"
+  const colors = ['#003F5C', '#8B8589', '#008080', '#003F5C', '#F4A8B3'];
+
+  // Map over each letter of "KICKS" to assign a unique color
+  const multiColoredKicks = 'KICKS'.split('').map((letter, index) => (
+    <span key={index} style={{ color: colors[index], margin: '0 2px' }}>
+      {letter}
+    </span>
+  ));
+
   return (
-  <Stack alignItems="center" spacing={2.5}>
-    <Box
-      component="h1"
-      display="flex"
-      flexWrap="wrap"
-      justifyContent="center"
-      sx={{
-        ...theme.typography.h2,
-        my: 0,
-        mx: 'auto',
-        maxWidth: 680,
-        fontFamily: theme.typography.fontSecondaryFamily,
-        [theme.breakpoints.up(lgKey)]: { fontSize: 72, lineHeight: '90px' },
-      }}
-    >
+    <div>
+      {/*  <div> Hello World </div> */}
       <Box
-        component={m.span}
-        animate={{ backgroundPosition: '200% center' }}
-        transition={{
-          duration: 20,
-          ease: 'linear',
-          repeat: Infinity,
-          repeatType: 'reverse',
-        }}
         sx={{
-          ...textGradient(
-            `300deg, ${theme.vars.palette.primary.main} 0%, ${theme.vars.palette.warning.main} 25%, ${theme.vars.palette.primary.main} 50%, ${theme.vars.palette.warning.main} 75%, ${theme.vars.palette.primary.main} 100%`
-          ),
-          backgroundSize: '400%',
-          ml: { xs: 0.75, md: 1, xl: 1.5 },
+          backgroundColor: '#f0f0f0',
+          padding: 4,
+          textAlign: 'center',
+          fontSize: '2rem',
+          color: '#000000', // default text color (overridden for "KICKS")
+          marginTop: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          fontWeight: 'bold', 
+          fontFamily: 'Arial, sans-serif', 
         }}
       >
-        Welcome to Quilt
+        {/* Render the text with "KICKS" styled separately */}
+        THE {multiColoredKicks} COLLECTIVE
+
+        {/* Shop Now button */}
+        <Box sx={{ marginTop: 2 }}>
+          <Button variant="contained" color="primary">
+            Shop Now
+          </Button>
+        </Box>
+
+        {/* Add item button with onClick logic */}
+        <Box sx={{ marginTop: 2 }}>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => setCount(count + 1)}
+          >
+            Add to Cart {count}
+          </Button>
+        </Box>
+
+        {/* Custom PromoCard component */}
+        <PromoCard 
+          title="Special Offer!" 
+          description="Get 20% off on your first order!" 
+        />
+       
+        {/* 🔹 New Component: Extended Euclidean Algorithm */}
+        <Box sx={{ marginTop: 4 }}>
+          <ExtendedEuclideanAlgorithm />
+        </Box>
+
       </Box>
-    </Box>
-    {/* <ExtendedEuclideanAlgorithm />
-    <ModularExponentiation />
-    <EulerTotientFunction /> */}
-  </Stack>
+    </div>
   );
 }
